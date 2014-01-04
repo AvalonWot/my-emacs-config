@@ -3,6 +3,9 @@
 
 (setq default-directory "~/")
 
+(add-to-list 'load-path (expand-file-name "~/.emacs.d"))
+(print load-path)
+
 ;;设置elpa的源
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("marmalade" . "http://marmalade-repo.org/packages/")
@@ -19,11 +22,9 @@
 (print (fontset-font (frame-parameter nil 'font) ?我))
 
 ;;设置行号
-(linum-mode 1)
+(global-linum-mode 1)
 
-;;设置evil-mode在启动时被开启
-(eval-after-load "evil-autoloads" 
-  '(evil-mode 1))
+(require 'init-evil)
 
 ;;初始化smex
 (eval-after-load "smex-autoloads"
