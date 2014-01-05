@@ -6,6 +6,11 @@
 (add-to-list 'load-path (expand-file-name "~/.emacs.d"))
 (print load-path)
 
+(setq *win32* (eq system-type 'windows-nt))
+
+;;禁止初始化界面
+(setq inhibit-startup-message t)
+
 ;;设置elpa的源
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("marmalade" . "http://marmalade-repo.org/packages/")
@@ -34,3 +39,7 @@
 
 ;;关闭备份 (不生成 filename~)
 (setq backup-inhibited 1)
+
+;;设置窗口为最大化
+(if *win32*
+    (w32-send-sys-command 61488))
