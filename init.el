@@ -24,6 +24,7 @@
 ;;设置行号
 (global-linum-mode 1)
 
+(require 'init-elpa)
 (require 'init-evil)
 
 ;;初始化smex
