@@ -16,5 +16,6 @@
 
 (require-package 'smex)
 (require-package 'evil)
+(require-package 'highlight-parentheses)
 
 (provide 'init-elpa)

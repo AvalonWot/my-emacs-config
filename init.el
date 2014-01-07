@@ -37,9 +37,18 @@
   '(progn (smex-initialize)
 	  (global-set-key "\M-x" 'smex)))
 
+;;初始化highlight-parentheses
+(eval-after-load "highlight-parentheses-autoloads"
+  '(progn 
+     (message "highlight-parentheses")
+     (highlight-parentheses-mode)))
 ;;关闭备份 (不生成 filename~)
 (setq backup-inhibited 1)
 
 ;;设置窗口为最大化
 (if *win32*
     (w32-send-sys-command 61488))
+
+;;开启括号匹配, 关闭输入括号时候跳一下的设置
+(show-paren-mode 1)
+(setq show-paren-style 'parenthesis)
