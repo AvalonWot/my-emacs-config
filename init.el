@@ -37,11 +37,13 @@
   '(progn (smex-initialize)
 	  (global-set-key "\M-x" 'smex)))
 
-;;初始化highlight-parentheses
-(eval-after-load "highlight-parentheses-autoloads"
-  '(progn 
-     (message "highlight-parentheses")
-     (highlight-parentheses-mode)))
+;;将highlight-parentheses设置成为全局mode
+;;http://www.emacswiki.org/emacs/HighlightParentheses
+(define-globalized-minor-mode global-highlight-parentheses-mode
+  highlight-parentheses-mode
+  (lambda ()
+    (highlight-parentheses-mode t)))
+(global-highlight-parentheses-mode t)
 ;;关闭备份 (不生成 filename~)
 (setq backup-inhibited 1)
 
