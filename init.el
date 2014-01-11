@@ -1,5 +1,5 @@
-(setenv "HOME" "D:/Tool/emacs-24.3")
-(setenv "PATH" "D:/Tool/emacs-24.3")
+;;(setenv "HOME" "D:/Tool/emacs-24.3")
+;;(setenv "PATH" "D:/Tool/emacs-24.3")
 
 (setq default-directory "~/")
 
@@ -17,12 +17,14 @@
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
 
 ;;set English font
-(set-face-attribute 'default nil :font "Consolas 12")
-;;
+(if *win32* 
+    (set-face-attribute 'default nil :font "Consolas 12"))
+
 ;;set Chinese font "Microsoft Yahei"
-(dolist (charset '(kana han symbol cjk-misc bopomofo))
-  (set-fontset-font (frame-parameter nil 'font)
-                    charset "-outline-幼圆-normal-normal-normal-mono-16-*-*-*-c-*-gb2312.1980-0"))
+(if *win32*
+    (dolist (charset '(kana han symbol cjk-misc bopomofo))
+      (set-fontset-font (frame-parameter nil 'font)
+                        charset "-outline-幼圆-normal-normal-normal-mono-16-*-*-*-c-*-gb2312.1980-0")))
 
 (print (fontset-font (frame-parameter nil 'font) ?我))
 
