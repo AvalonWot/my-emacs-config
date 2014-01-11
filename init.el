@@ -1,12 +1,13 @@
-;;(setenv "HOME" "D:/Tool/emacs-24.3")
-;;(setenv "PATH" "D:/Tool/emacs-24.3")
+(setq *win32* (eq system-type 'windows-nt))
+(if *win32*
+    (progn (setenv "HOME" "D:/Tool/emacs-24.3")
+	   (setenv "PATH" "D:/Tool/emacs-24.3")))
 
 (setq default-directory "~/")
 
 (add-to-list 'load-path (expand-file-name "~/.emacs.d"))
 (print load-path)
 
-(setq *win32* (eq system-type 'windows-nt))
 
 ;;禁止初始化界面
 (setq inhibit-startup-message t)
