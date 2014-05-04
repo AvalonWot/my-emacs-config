@@ -34,6 +34,7 @@
 
 (require 'init-elpa)
 (require 'init-evil)
+(require 'init-scheme)
 
 ;;初始化smex
 (eval-after-load "smex-autoloads"
@@ -57,3 +58,8 @@
 ;;开启括号匹配, 关闭输入括号时候跳一下的设置
 (show-paren-mode 1)
 (setq show-paren-style 'parenthesis)
+
+;;设置lisp用的ParEdit模式
+(autoload 'paredit-mode "paredit"
+            "Minor mode for pseudo-structurally editing Lisp code."
+              t)
